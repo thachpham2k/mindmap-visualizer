@@ -14,7 +14,7 @@
         <div class="input-area">
             <div class="button-container">
                 <label for="fileInput" class="file-label">Load File</label>
-                <input type="file" id="fileInput" accept=".md,.json" class="file-input" onchange="loadFile(event)">
+                <input type="file" id="fileInput" accept=".md,.json" class="file-input" onchange="loadFile(event)" onclick="this.value=null;">
                 <button onclick="setInputMode('markdown')">Markdown</button>
                 <button onclick="setInputMode('json')">JSON</button>
                 <button id="test" onclick="insertSampleCode()">Test</button>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <footer>
-        This application was built by <a href="https://www.linkedin.com/in/phamthach" target="_blank">Phạm Thạch</a> using the <a href="https://markmap.js.org/" target="_blank">Markmap library</a>.
+        <p>This application was built by <a href="https://www.linkedin.com/in/phamthach" target="_blank">Phạm Thạch</a> using the <a href="https://markmap.js.org/" target="_blank">Markmap library</a>.</p>
     </footer>
 
     <script src="./script.js"></script>

@@ -4,67 +4,80 @@ body, html {
     font-family: Arial, sans-serif;
     background-color: rgba(226, 242, 255, 0.2);
 }
+
 .container {
     display: flex;
-    height: calc(100% - 100px);
-}
-.input-area {
-    width: 40%;
-    padding: 20px;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
     box-sizing: border-box;
 }
+
+.input-area, .result-area {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
 .result-area {
-    width: 60%;
-    padding: 10px 20px 0px 0px;
-    box-sizing: border-box;
+    height: 100%;
 }
+
 textarea {
     width: 100%;
-    height: calc(100% - 80px);
+    height: 200px;
+    resize: vertical;
+    margin-bottom: 20px;
 }
+
 svg {
     width: 100%;
     height: calc(100% - 40px);
 }
+
+/* Button container styles */
 .button-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 10px;
 }
+
+/* Styles for file input and label */
 .file-input {
     display: none;
 }
+
 .file-label {
     color: white;
     background-color: #4CAF50;
     padding: 10px 20px;
     font-size: 16px;
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 5px;
 }
+
 .file-label:hover {
     background-color: #38803b;
 }
-.button-container label {
-    padding: 10px 20px;
-    font-size: 16px;
-    margin-right: 10px;
-}
+
 button {
     background-color: white;
     padding: 10px 20px;
     font-size: 16px;
-    margin: 0 10px;
+    margin: 10px;
     cursor: pointer;
     border-radius: 5px;
 }
+
 button#test {
     color: white;
     background-color: #007bff;
-    padding: 6px 12px;
+    padding: 10px 20px;
     border: none;
 }
+
 button#test:hover {
     background-color: #0056b3;
 }
@@ -81,7 +94,26 @@ footer {
     box-sizing: border-box;
     padding: 0 20px;
 }
+
 footer a {
     color: #0073b1;
     text-decoration: none;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .input-area {
+        width: 40%;
+    }
+
+    .result-area {
+        width: 60%;
+    }
+
+    textarea {
+        height: calc(100% - 80px);
+    }
 }

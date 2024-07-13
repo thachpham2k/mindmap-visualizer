@@ -30,7 +30,7 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 ### Blocks
 
 \`\`\`js
-console.log('hello, JavaScript')
+')
 \`\`\`
 
 | Products | Price |
@@ -132,11 +132,19 @@ function jsonToMarkdown(json, indent = '') {
 function loadFile(event) {
     const file = event.target.files[0];
     if (!file) return;
-
     const reader = new FileReader();
     reader.onload = function (e) {
         const contents = e.target.result;
         document.getElementById('inputArea').value = contents;
+        try {
+            const json = JSON.parse(contents);
+            const markdown = jsonToMarkdown(json);
+            inputMode = 'json'
+            createMindmap(markdown);
+        } catch (error) {
+            inputMode = 'markdown'
+            createMindmap(contents);
+        }
         updateMindmap();
     };
     reader.readAsText(file);
@@ -145,6 +153,5 @@ function loadFile(event) {
 window.onload = function () {
     const inputArea = document.getElementById('inputArea');
     inputArea.placeholder = 'Paste your Markdown here...';
-    inputArea.value = ''; // Clear initial value
     updateMindmap();
 };
